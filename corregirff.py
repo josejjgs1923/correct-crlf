@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-eliminar los ssltos de linea de windows, que contienen caracteres de retorno, en archivos.
+eliminar los saltos de linea de windows, que contienen caracteres de retorno, en archivos.
 """
 from pathlib import Path
 import argparse
@@ -8,7 +8,6 @@ import argparse
 
 def eliminar_CR(arch: Path):
     with arch.open("rb+") as rfile:
-
         contenido = rfile.read()
 
         rfile.seek(0)
@@ -37,15 +36,12 @@ def main():
     opts = parser.parse_args()
 
     for ruta in opts.ruta:
-
         if ruta.is_dir():
-
             for arch in ruta.iterdir():
 
                 eliminar_CR(arch)
 
         else:
-
             eliminar_CR(ruta)
 
 
